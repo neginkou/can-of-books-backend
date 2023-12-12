@@ -1,15 +1,3 @@
-# Start your own "Can of Books" App
-
-This repository has starter code to begin work on creating your own online bookshelf.
-
-## What can books do?
-
-Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. Build out this code base to create an web app to track what books have impacted you, and what's recommended to read next.
-
-## Use this template
-
-Clone this repo to your own account with the green "Use this template" button. Then, add any collaborators. Now you are ready to start adding features! Deploy your site to let the world know which books have had the greatest impact on you, and what's recommended. Enjoy!
-
 
 # Can-of-Books
 
@@ -44,12 +32,19 @@ The Can of Books app is designed as a client-server application. The front end i
 
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
-
+[12/11/23 at 4:00 PM] - Application now has a fully-functional express server, with a GET route for the location resource.
+[12/11/23 at 5:30 PM] - Implemented book tracking functionality on the client side.
+[12/11/23 at 6:00 PM] - Integrated recommendations feature on the server.
 ## Estimates
-<!-- See below -->
+
+Initial setup and repository creation (1 hour)
+Local development environment configuration (2 hours)
+Collaboration and code integration (3 hours)
+Deployment to the cloud (2 hours)
+Documentation and final touches (1 hour)
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+Errol Vidad
+ Chatgpt
