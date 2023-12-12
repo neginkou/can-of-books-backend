@@ -10,6 +10,8 @@ const booksSchema = new mongoose.Schema({
   
   // This "Dog" ends up being a constructor/class based on that schema
   // Mongoose will help us to manage that...
-  const Books = mongoose.model('Books', booksSchema);
+  const Book = mongoose.model('Book', booksSchema);
   
   // We're exporting it here so that we can ... i
+
+  module.exports = Book;

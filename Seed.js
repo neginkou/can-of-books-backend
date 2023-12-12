@@ -3,12 +3,13 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Bring in our Dog Schema
-const Books = require('./Models/Book.js');
+const Book = require('./Models/books.js');
 
 // Open a connecton to the database
 mongoose.connect(process.env.MONGODB_URL);
 
 async function seed() {
+    console.log('seeding the books');
 
     const Book1 = new Book({
         Title: 'Rich dad Poor dad',
@@ -40,7 +41,7 @@ async function seed() {
     } catch (e) {
         console.error(e.message);
     }
-
+    console.log('finish seeding the books');
     mongoose.disconnect();
 
 }
