@@ -48,3 +48,15 @@ Documentation and final touches (1 hour)
 
 Errol Vidad
  Chatgpt
+
+ ## lab12
+
+ Name of feature: ___ REST__
+
+Estimate of time needed to complete: __3 hrs___
+
+Start time: ___2:30 PM____
+
+Finish time: __5:30 PM_____
+
+Actual time needed to complete: __2 hrs___
