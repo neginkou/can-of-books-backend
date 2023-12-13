@@ -62,7 +62,7 @@ app.delete('/books/:id', async (request, response) => {
     console.log('Deleteing', id);
     // mongoose method
     let deletedBook = await Books.findOneAndDelete({ _id: id });
-    console.log('deleted', deletedBook);
+    console.log('deleted this book', deletedBook);
     // send an empty object back and status
     response.status(204).send({});
   } catch (error) {
