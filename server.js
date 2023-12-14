@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv').config();
+// require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const Books = require('./Models/books.js');
@@ -9,7 +9,7 @@ const { default: mongoose } = require('mongoose');
 const app = express();
 app.use(cors());
 
-mongoose.connect(process.env.MONGODB_URL);
+// mongoose.connect(process.env.MONGODB_URL);
 
 // teraches express how to parse/consume/translate information from a post or put request
 app.use(express.json());
@@ -18,13 +18,14 @@ const PORT = process.env.PORT || 3001;
 
 
 // this is a proof of life
-app.get('/test', (request, response) => {
-  response.send('test request received');
-});
 
 // this is the "default" or "home page" route
 app.get('/', (request, response) => {
   response.send('Home Page');
+});
+
+app.get('/test', (request, response) => {
+  response.send('test request received');
 });
 
 // going to thunderclient and selecting get should return the object of books
@@ -54,6 +55,16 @@ app.post('/Books', async (request, response) => {
   }
 });
 
+// used John's demo13 code to write this fxn
+app.put('/Books:id', async (request, response) => {
+  let book = request.body;
+  let id = request.params.id;
+
+  const updatedbook = await Books.findByIdAndUpdate( id, book, {new:true, overwrite:true })
+
+  response.json(updatedbook);
+});
+
 // this is the delete to remove book with specific id from front-end
 // the word after : needs to match the word after params.'id'
 app.delete('/books/:id', async (request, response) => {
@@ -71,20 +82,16 @@ app.delete('/books/:id', async (request, response) => {
   }
 });
 
-// fake list of books, but we can use this dummy data to check if the server is working
-// let books = [
-// { title: 'My puppies', description: 'all about puppies'}
-// ]
 
-async function handleGetBooks(request, response) {
-  try {
-    const booksData = await Books.find();
-    response.status(200).json(booksData);
-  } catch (error) {
-    console.error(error);
-    response.status(500).json({ error: 'Internal Server Error' });
-  }
-}
+// async function handleGetBooks(request, response) {
+//   try {
+//     const booksData = await Books.find();
+//     response.status(200).json(booksData);
+//   } catch (error) {
+//     console.error(error);
+//     response.status(500).json({ error: 'Internal Server Error' });
+//   }
+// }
 
 const server = {
   start: function (port) {
