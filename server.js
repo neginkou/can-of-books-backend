@@ -30,7 +30,7 @@ app.get('/test', (request, response) => {
 
 // going to thunderclient and selecting get should return the object of books
 // why does this need to be async and await?
-app.get('/Books', async (request, response) => {
+app.get('/books', async (request, response) => {
   try {
     // does this .find method connect the front to back?
     const booksData = await Books.find();
@@ -43,7 +43,7 @@ app.get('/Books', async (request, response) => {
 
 // going to thunderclient and selecting post should return the response
 // used ChatGPT to modify this code and include catch errors
-app.post('/Books', async (request, response) => {
+app.post('/books', async (request, response) => {
   try {
     const newBook = request.body;
     const createdBook = await Books.create(newBook);
@@ -56,7 +56,7 @@ app.post('/Books', async (request, response) => {
 });
 
 // used John's demo13 code to write this fxn
-app.put('/Books:id', async (request, response) => {
+app.put('/books:id', async (request, response) => {
   let book = request.body;
   let id = request.params.id;
 
