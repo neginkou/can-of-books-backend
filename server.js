@@ -30,6 +30,7 @@ app.get('/test', (request, response) => {
 
 // going to thunderclient and selecting get should return the object of books
 // why does this need to be async and await?
+// 1. this is grabbing the book data from the server to show on the client
 app.get('/Books', async (request, response) => {
   try {
     // does this .find method connect the front to back?
@@ -43,6 +44,7 @@ app.get('/Books', async (request, response) => {
 
 // going to thunderclient and selecting post should return the response
 // used ChatGPT to modify this code and include catch errors
+// first part is route, then a callback function
 app.post('/Books', async (request, response) => {
   try {
     const newBook = request.body;
@@ -56,23 +58,23 @@ app.post('/Books', async (request, response) => {
 });
 
 // used John's demo13 code to write this fxn
-app.put('/Books:id', async (request, response) => {
+app.put('/Books/:title', async (request, response) => {
   let book = request.body;
-  let id = request.params.id;
+  let title = request.params.title;
 
-  const updatedbook = await Books.findByIdAndUpdate( id, book, {new:true, overwrite:true })
+  const updatedbook = await Books.findByIdAndUpdate( title, book, {new:true, overwrite:true })
 
   response.json(updatedbook);
 });
 
 // this is the delete to remove book with specific id from front-end
 // the word after : needs to match the word after params.'id'
-app.delete('/books/:id', async (request, response) => {
+app.delete('/books/:title', async (request, response) => {
   try {
-    let id = request.params.id;
-    console.log('Deleteing', id);
+    let title = request.params.title;
+    console.log('Deleteing', title);
     // mongoose method
-    let deletedBook = await Books.findOneAndDelete({ _id: id });
+    let deletedBook = await Books.findOneAndDelete({ title : title });
     console.log('deleted this book', deletedBook);
     // send an empty object back and status
     response.status(204).send({});
